@@ -4,6 +4,8 @@ import Title from '@/components/title'
 import HomeCalendar from '@/containers/home/calendar'
 import AddNav from '@/containers/home/addNav'
 import { useEffect, useState } from 'react'
+import { useRecoilState } from 'recoil'
+import { isLoadingAtom } from '@/recoil/atoms'
 
 interface WebAppInterface {
   getAccountBookList(item: any): any
@@ -12,6 +14,8 @@ interface WebAppInterface {
 declare const HybridApp: WebAppInterface
 
 export default function HomeContainer() {
+  const [loadingAtom, setLoadingAtom] = useRecoilState(isLoadingAtom)
+
   const initDate = new Date()
   const searchDate = initDate.getFullYear() + '-' + (initDate.getMonth() + 1)
 
@@ -26,6 +30,10 @@ export default function HomeContainer() {
     const list = JSON.parse(jsonString)
 
     setAccountList(list)
+
+    setTimeout(function () {
+      setLoadingAtom(false)
+    }, 3000)
   }
 
   return (

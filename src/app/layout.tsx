@@ -3,6 +3,8 @@ import '@/styles/input.css'
 
 import Core from '@/config/core'
 import Footer from '@/containers/footer'
+import Recoil from '@/config/recoil'
+import Loading from '@/config/loading'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       />
       <body>
         <div id="global-modal"></div>
-        <Core>{children}</Core>
+        <Recoil>
+          <Core>{children}</Core>
+        </Recoil>
         <Footer />
       </body>
     </html>
