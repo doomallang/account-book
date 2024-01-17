@@ -67,7 +67,6 @@ export default function StatisticsContainer() {
   }
   return (
     <>
-      <div>qweqweqwe</div>
       <DonutChart data={chartData} />
     </>
   )
