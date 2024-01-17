@@ -5,12 +5,12 @@ import { usePathname } from 'next/navigation'
 import PATH from '@/constants/path'
 
 // svg
-import IconTrophyWhite from '../../public/svgs/iconTrophyWhite'
 import IconHomeWhite from '../../public/svgs/iconHomeWhite'
 import IconHomeBlack from '../../public/svgs/iconHomeBlack'
-import IconTrophyBlack from '../../public/svgs/iconTrophyBlack'
 import IconMoneyPocket from '@public/svgs/iconMoneyPocket'
 import IconMoneyPocketBlack from '@public/svgs/iconMoneyPocketBlack'
+import IconNote from '@public/svgs/iconNote'
+import IconNoteBlack from '@public/svgs/iconNoteBlack'
 
 export default function Footer() {
   const pathname = usePathname()
@@ -28,11 +28,11 @@ export default function Footer() {
           </Link>
         </li>
         <li>
-          <Link href={PATH.MENU.hot}>
-            {pathname === PATH.MENU.hot ? (
-              <IconTrophyBlack style={{ width: '24px', height: '24px' }} />
+          <Link href={PATH.MENU.statistics}>
+            {pathname === PATH.MENU.statistics ? (
+              <IconNoteBlack style={{ width: '24px', height: '24px' }} />
             ) : (
-              <IconTrophyWhite style={{ width: '24px', height: '24px' }} />
+              <IconNote style={{ width: '24px', height: '24px' }} />
             )}
           </Link>
         </li>

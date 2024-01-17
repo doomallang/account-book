@@ -1,6 +1,6 @@
 const MENU = {
   home: '/home',
-  hot: '/hot',
+  statistics: '/statistics',
   estimate: '/estimate',
 }
 
