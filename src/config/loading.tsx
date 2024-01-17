@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Loading = () => {
-  if (!open) return null
   return (
     <>
       <div className="loadingStyle">
