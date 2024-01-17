@@ -4,7 +4,6 @@ import '@/styles/input.css'
 import Core from '@/config/core'
 import Footer from '@/containers/footer'
 import Recoil from '@/config/recoil'
-import Loading from '@/config/loading'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
