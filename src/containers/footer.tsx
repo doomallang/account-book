@@ -10,6 +10,7 @@ import IconHomeWhite from '../../public/svgs/iconHomeWhite'
 import IconHomeBlack from '../../public/svgs/iconHomeBlack'
 import IconTrophyBlack from '../../public/svgs/iconTrophyBlack'
 import IconMoneyPocket from '@public/svgs/iconMoneyPocket'
+import IconMoneyPocketBlack from '@public/svgs/iconMoneyPocketBlack'
 
 export default function Footer() {
   const pathname = usePathname()
@@ -38,7 +39,7 @@ export default function Footer() {
         <li>
           <Link href={PATH.MENU.estimate}>
             {pathname === PATH.MENU.estimate ? (
-              <IconMoneyPocket style={{ width: '24px', height: '24px' }} />
+              <IconMoneyPocketBlack style={{ width: '24px', height: '24px' }} />
             ) : (
               <IconMoneyPocket style={{ width: '24px', height: '24px' }} />
             )}

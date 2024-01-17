@@ -9,7 +9,17 @@ import HomeModal from '@/containers/home/modal'
 type ValuePiece = Date | null
 type Value = ValuePiece | [ValuePiece, ValuePiece]
 
-export default function HomeCalendar({ getAccountList, list }: { getAccountList: any; list: any }) {
+export default function HomeCalendar({
+  getAccountList,
+  list,
+  getDiaryList,
+  diaryList,
+}: {
+  getAccountList: any
+  list: any
+  getDiaryList: any
+  diaryList: any
+}) {
   const [date, setDate] = useState<Value>(new Date())
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -22,11 +32,13 @@ export default function HomeCalendar({ getAccountList, list }: { getAccountList:
     const searchDate =
       value.activeStartDate.getFullYear() + '-' + (value.activeStartDate.getMonth() + 1)
     getAccountList(searchDate)
+    getDiaryList(searchDate)
   }
 
   const setContent = ({ date }: any) => {
     let income: number = 0
     let expense: number = 0
+    let isDiary: boolean = false
     const contents: any[] = []
     list.forEach(function (obj: any) {
       const datetime = moment(obj.date).format('YYYY-MM-DD')
@@ -38,6 +50,17 @@ export default function HomeCalendar({ getAccountList, list }: { getAccountList:
         }
       }
     })
+
+    diaryList.forEach(function (obj: any) {
+      const datetime = moment(obj.date).format('YYYY-MM-DD')
+      if (datetime === moment(date).format('YYYY-MM-DD')) {
+        isDiary = true
+      }
+    })
+
+    if (isDiary) {
+      contents.push(<div className={'tiles-content'}>📔</div>)
+    }
 
     if (income !== 0) {
       contents.push(<div className={'color-red tiles-content'}>{income.toLocaleString()}</div>)

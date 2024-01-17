@@ -7,8 +7,6 @@ export default function Home() {
   const { onLink } = useLink()
 
   useEffect(() => {
-    setTimeout(function () {
-      onLink('/home')
-    }, 2000)
+    onLink('/home')
   }, [])
 }
